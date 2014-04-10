@@ -9,5 +9,7 @@ use WWW::Rakuten::API;
 
 my $rakuten = WWW::Rakuten::API->new(appid => '3766475e74cb414b34384f5034546640');
 
-print $rakuten->{appid};
+use Data::Dumper;
+
+print Dumper $rakuten->execute('IchibaItem',{keyword=>'プログラミング'});
 

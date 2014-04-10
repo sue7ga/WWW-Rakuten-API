@@ -3,7 +3,11 @@ use 5.008005;
 use strict;
 use warnings;
 
+use WWW::Rakuten::API::Category;
+
 our $VERSION = "0.01";
+
+use constant BASEURL => 'https://app.rakuten.co.jp/services/api';
 
 sub new{
  my($class,%opt) = @_;
@@ -14,14 +18,30 @@ sub new{
  $self;
 }
 
-sub item{
+sub appid{
  my $self = shift;
-
-
+ return $self->{appid};
 }
 
+sub execute{
+ my($self,$category,$parameter) = @_;
+ my $class = __PACKAGE__.'::'.'Category';
+ my $appid = $self->appid;
+ $class->dispatch($appid,$category,$parameter);
+}
+
+sub item{
+ my $self = shift;
+ WWW::Rakuten::API::Provider->dispatch('item',$self->appid,@_);
+}
+
+sub all{
+ my $self = shift;
+ WWW::Rakuten::API::Provider->dispatch('all',$self->appid,@_);
+}
 
 1;
+
 __END__
 
 =encoding utf-8
