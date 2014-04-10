@@ -13,3 +13,4 @@ use Data::Dumper;
 
 print Dumper $rakuten->execute('IchibaItem',{keyword=>'プログラミング'});
 
+

@@ -2,12 +2,9 @@ package WWW::Rakuten::API;
 use 5.008005;
 use strict;
 use warnings;
-
 use WWW::Rakuten::API::Category;
 
 our $VERSION = "0.01";
-
-use constant BASEURL => 'https://app.rakuten.co.jp/services/api';
 
 sub new{
  my($class,%opt) = @_;
@@ -30,15 +27,6 @@ sub execute{
  $class->dispatch($appid,$category,$parameter);
 }
 
-sub item{
- my $self = shift;
- WWW::Rakuten::API::Provider->dispatch('item',$self->appid,@_);
-}
-
-sub all{
- my $self = shift;
- WWW::Rakuten::API::Provider->dispatch('all',$self->appid,@_);
-}
 
 1;
 
