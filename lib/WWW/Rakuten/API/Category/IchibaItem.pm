@@ -4,6 +4,7 @@ use warnings;
 use utf8;
 use URI::Escape;
 use Carp;
+use lib;
 use WWW::Rakuten::API::Category::Common;
 
 sub call{
@@ -43,10 +44,8 @@ sub all{
 
 }
 
-
 sub item{
 
 }
-
 
 1;
