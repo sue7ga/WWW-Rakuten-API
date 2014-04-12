@@ -1,7 +1,7 @@
 package WWW::Rakuten::API;
-use 5.008005;
 use strict;
 use warnings;
+use 5.008005;
 use WWW::Rakuten::API::Category;
 
 our $VERSION = "0.01";

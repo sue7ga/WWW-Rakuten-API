@@ -1,9 +1,7 @@
 package WWW::Rakuten::API::Category;
-
-use WWW::Rakuten::API::Category::IchibaItem;
-
 use strict;
 use warnings;
+use WWW::Rakuten::API::Category::IchibaItem;
 
 sub dispatch{
  my($self,$appid,$category,$parameter) = @_;
