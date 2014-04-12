@@ -5,7 +5,7 @@ use utf8;
 use URI::Escape;
 use Carp;
 use FindBin;
-use lib '$FindBin::Bin/../../lib';
+use lib "$FindBin::Bin/../../../../lib";
 use WWW::Rakuten::API::Category::Common;
 
 sub call{
