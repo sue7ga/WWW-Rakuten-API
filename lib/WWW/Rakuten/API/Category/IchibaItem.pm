@@ -18,7 +18,6 @@ sub call{
  my @parameter;
  #keywordをURLencode
  $keyword = uri_escape($keyword);
- return $keyword;
  if(defined $keyword){
    push @parameter,"keyword=$keyword";
  }
