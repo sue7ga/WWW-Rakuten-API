@@ -5,8 +5,9 @@ use utf8;
 use URI::Escape;
 use Carp;
 use FindBin;
-use lib "/home/suehiro/WWW-Rakuten-API/lib";
 use WWW::Rakuten::API::Category::Common;
+use LWP::UserAgent;
+
 
 sub call{
  my($class,$appid,$parameter) = @_;
@@ -37,7 +38,9 @@ sub call{
    $category,
    $subapi,
  );
- return $content;
+ my $ua = LWP::UserAgent->new;
+ my $res = $ua->get($content);
+ return $res;
 }
 
 sub all{
