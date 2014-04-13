@@ -11,6 +11,7 @@ my $rakuten = WWW::Rakuten::API->new(appid => '3766475e74cb414b34384f5034546640'
 
 use Data::Dumper;
 
-print Dumper $rakuten->execute('IchibaItem',{keyword=>'プログラミング'});
-
+my $content = $rakuten->execute('IchibaItem',{keyword=>'楽天',genreId=>559887,shopCode=>'rakuten24'});
+ 
+print $content;
 

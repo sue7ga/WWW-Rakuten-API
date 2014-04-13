@@ -5,9 +5,9 @@ use utf8;
 use URI::Escape;
 use Carp;
 use FindBin;
+use JSON;
 use WWW::Rakuten::API::Category::Common;
 use LWP::UserAgent;
-
 
 sub call{
  my($class,$appid,$parameter) = @_;
@@ -19,7 +19,7 @@ sub call{
  my $shopCode = $parameter->{shopCode};
  my @parameter;
  #keywordをURLencode
- $keyword = uri_escape($keyword);
+ $keyword = uri_escape_utf8($keyword);
  if(defined $keyword){
    push @parameter,"keyword=$keyword";
  }
@@ -40,15 +40,13 @@ sub call{
  );
  my $ua = LWP::UserAgent->new;
  my $res = $ua->get($content);
- return $res;
-}
-
-sub all{
-
+ return decode_json($res->{_content});
 }
 
 sub item{
-
+ my($class,$appid,$parameter) = @_;
+ my $json_content = $class->call($appid,$parameter);
+ return $json_content->{Items}->[0]->{Item}->{itemUrl};
 }
 
 1;
