@@ -9,6 +9,8 @@ use JSON;
 use WWW::Rakuten::API::Category::Common;
 use LWP::UserAgent;
 
+use constant era => '20140222';
+
 sub call{
  my($class,$appid,$parameter) = @_;
  my $category = 'IchibaItem';
@@ -50,3 +52,5 @@ sub item{
 }
 
 1;
+
+

@@ -15,3 +15,5 @@ my $content = $rakuten->execute('IchibaItem',{keyword=>'楽天',genreId=>559887,
  
 print $content;
 
+
+

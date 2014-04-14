@@ -17,15 +17,6 @@ is($content->{first},1,'first is ok');
 is($content->{last},1,'last is ok');
 is($content->{carrier},0,'carrier is ok');
 is($content->{pageCount},1,'page is ok');
-is_deeply(
-   $content->{Items},
-[
-  height => 0.4,
-  weight => 6.0,
-  type   => ['Grass','Steel'],
-]  
-);
-
 
 
 done_testing;
