@@ -14,11 +14,22 @@ my $content = $rakuten->execute('AuctionItem',{keyword=>'PC',auctionGenredId=>'0
 
 use Data::Dumper;
 
+my $itemlist = 1;
+
+is($content->{count},12513,'count is correct');
+is($content->{page},1,'page is correct');
+is($content->{first},1,'first is correct');
+is($content->{last},30,'last is correct');
+is($content->{hits},30,'hits is correct');
+is($content->{carrier},0,'carrier is correct');
+is($content->{pageCount},100,'pageCount is correct');
+
 foreach my $item(@{$content->{Items}}){
   foreach my $key(keys %{$item}){
+    #print $itemlist ,"個の商品リスト表示","\n";
     my @keys = keys $item->{$key};    
-    print "@keys";
-    print map{ $_ ,"=>", $item->{$key}->{$_} ,"\n"}@keys;
+    #print map{ $_ ,"=>", $item->{$key}->{$_} ,"\n"}@keys;
+    $itemlist++;
   }
 }
 
