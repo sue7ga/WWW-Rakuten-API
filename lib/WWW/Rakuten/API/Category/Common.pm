@@ -6,10 +6,12 @@ use utf8;
 use constant BASEURL => 'https://app.rakuten.co.jp/services/api';
 
 sub call{
- my($class,$category,$subapi) = @_;
- my $content = BASEURL.'/'.$category.'/Search/20140222?format=json&'.$subapi;
- return $content;
+ my($class,$category,$era,$parameter) = @_;
+ my $basic_url = BASEURL.'/'.$category.'/Search/$era';
+ return $parameter;
+ my $url = URL->new($basic_url);
 }
+
 
 1;
 

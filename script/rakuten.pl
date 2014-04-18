@@ -8,10 +8,8 @@ use lib "$FindBin::Bin/../lib";
 use WWW::Rakuten::API;
 
 my $rakuten = WWW::Rakuten::API->new(appid => '3766475e74cb414b34384f5034546640');
-
 use Data::Dumper;
-
-my $content = $rakuten->execute('IchibaItem',{keyword=>'楽天',genreId=>559887,shopCode=>'rakuten24'});
+my $content = $rakuten->execute('AuctionItem',{keyword=>'PC',auctionGenredId=>'0'});
  
 print $content;
 
