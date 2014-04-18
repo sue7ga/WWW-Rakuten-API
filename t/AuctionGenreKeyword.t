@@ -28,5 +28,15 @@ foreach my $genre(@genre){
  print Encode::encode_utf8($genre),"\n";
 }
 
+my @game = grep{$_ =~ /ｹﾞｰﾑ/i}@genre;
+
+my @game_before;
+
+foreach my $game(@game){
+  $game =~ s/(.*)ｹﾞｰﾑ/$1/g;
+  push @game_before,$game;
+}
+
+print Encode::encode_utf8("@game_before");
 
 
