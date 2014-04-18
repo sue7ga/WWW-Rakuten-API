@@ -33,6 +33,12 @@ sub get_auctionGenreList{
  return @auctionGenreIds;
 }
 
+sub get_fullGenrePath{
+ my($self,$content) = @_;
+ my @fullGenrePaths = map{$_->{fullGenrePath},"\n"}@{$content->{auctionGenreList}};
+ return @fullGenrePaths;
+}
+
 1;
 
 __END__
