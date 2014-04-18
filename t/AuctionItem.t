@@ -4,7 +4,6 @@ use utf8;
 use Encode;
 use WWW::Rakuten::API;
 use WWW::Rakuten::API::Category::AuctionItem;
-
 use Test::More;
 use Test::Deep;
 

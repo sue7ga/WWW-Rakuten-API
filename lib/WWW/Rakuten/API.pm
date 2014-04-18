@@ -27,6 +27,11 @@ sub execute{
  $class->dispatch($appid,$category,$parameter);
 }
 
+sub get_auctionGenreList{
+ my($self,$content) = @_;
+ my @auctionGenreIds = map{$_->{auctionGenreId}}@{$content->{auctionGenreList}};
+ return @auctionGenreIds;
+}
 
 1;
 

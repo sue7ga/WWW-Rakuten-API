@@ -1,26 +1,14 @@
-package WWW::Rakuten::API::Category::AuctionItem;
+package WWW::Rakuten::API::Category::AuctionGenreKeyword;
 use strict;
 use warnings;
 use utf8;
-use URI::Escape;
 use Carp;
 use FindBin;
 use JSON;
 use WWW::Rakuten::API::Category::Common;
-use LWP::UserAgent;
-use parent qw/Exporter/;
+use WWW::Rakuten::API::Category::AuctionItem qw/get_package_lastmethod/;
 
-our @EXPORT_OK = qw/get_package_lastmethod/;
-
-use constant era => '20130110';
-
-sub get_package_lastmethod{
- my $packagename = __PACKAGE__;
- my $last_coron  = rindex($packagename,'::');
- my $sub = substr($packagename,$last_coron);
- $sub =~ s/:://;
- return $sub;
-}
+use constant era => '20120927';
 
 sub call{
  my($call,$appid,$parameter) = @_;
@@ -31,7 +19,6 @@ sub call{
  $url->query_form(
    format => 'json',
    keyword => $parameter->{keyword},
-   auctionGenreId => $parameter->{auctionGenredId},
    applicationId => $appid,
  );
  my $ua = LWP::UserAgent->new;
